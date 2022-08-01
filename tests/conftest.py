@@ -10,12 +10,21 @@ twilio_client = Client(account_sid, auth_token)
 
 twilio_client_mock = setup_twilio_client_mock()
 
-clients = [
-    # twilio_client,
-    twilio_client_mock
-]
+clients = [twilio_client, twilio_client_mock]
+
+
+def pytest_addoption(parser):
+    parser.addoption("--client", action="store", default="default name")
+
+
+@pytest.fixture(scope="session")
+def client_option(pytestconfig):
+    return pytestconfig.getoption("client")
 
 
 @pytest.fixture(autouse=True, params=clients)
-def client(request):
-    yield request.param
+def client(request, client_option):
+    if client_option == "mock":
+        yield twilio_client_mock
+    else:
+        yield request.param
