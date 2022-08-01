@@ -21,7 +21,6 @@ def pytest_addoption(parser):
 def client_option(pytestconfig):
     return pytestconfig.getoption("client")
 
-
 @pytest.fixture(autouse=True, params=clients)
 def client(request, client_option):
     if client_option == "mock":
