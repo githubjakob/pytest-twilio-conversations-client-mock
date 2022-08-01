@@ -3,3 +3,4 @@
 .pytest_cache
 venv
 *.iml
+.DS_Store
