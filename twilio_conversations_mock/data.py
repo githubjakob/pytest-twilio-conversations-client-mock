@@ -1,1 +1,1 @@
-data = {"conversations": {}}
+data = {"conversations": {}, "users": {}}
