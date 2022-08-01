@@ -1,7 +1,5 @@
 import pytest
 from twilio.rest import Client
-
-
 from twilio_conversations_client_mock import setup_twilio_client_mock
 
 CLI_CLIENT_ARG_MOCK_ONLY = "mock"
