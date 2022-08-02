@@ -1,3 +1,5 @@
+import os
+
 import pytest
 from twilio.rest import Client
 
@@ -6,8 +8,8 @@ from client import ClientMock
 CLI_CLIENT_ARG_MOCK_ONLY = "mock"
 CLI_CLIENT_ARG_TWILIO_CLIENT_ONLY = "twilio"
 
-account_sid = "AC03f054c9b284448bbfa04943fd6cb6c0"
-auth_token = "65f61fb59b4dbb6d76fa468e977e48bc"
+account_sid = os.environ.get("account_sid")
+auth_token = os.environ.get("auth_token")
 
 twilio_client = Client(account_sid, auth_token)
 twilio_client_mock = ClientMock(account_sid, auth_token)
