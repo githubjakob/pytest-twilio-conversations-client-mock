@@ -5,3 +5,4 @@ venv
 *.iml
 .DS_Store
 *.egg-info/
+dist/
