@@ -7,5 +7,5 @@ test-mock-only:
 test-twilio-only:
 	pytest -s --client twilio
 
-generate-test-coverage-report:
+test-coverage-report:
 	pytest --cov=twilio_conversations_mock --client mock tests/

@@ -1,6 +1,7 @@
 import pytest
 from twilio.rest import Client
-from twilio_conversations_client_mock import setup_twilio_client_mock
+
+from client import ClientMock
 
 CLI_CLIENT_ARG_MOCK_ONLY = "mock"
 CLI_CLIENT_ARG_TWILIO_CLIENT_ONLY = "twilio"
@@ -9,8 +10,7 @@ account_sid = "AC03f054c9b284448bbfa04943fd6cb6c0"
 auth_token = "65f61fb59b4dbb6d76fa468e977e48bc"
 
 twilio_client = Client(account_sid, auth_token)
-
-twilio_client_mock = setup_twilio_client_mock()
+twilio_client_mock = ClientMock(account_sid, auth_token)
 
 clients = [twilio_client, twilio_client_mock]
 
